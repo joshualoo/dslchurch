@@ -1,0 +1,164 @@
+// BASE THEME VARS
+
+// FONTS
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;700&family=Libre+Caslon+Text:ital@0;1&display=swap");
+
+// COLORS
+$white: #fcf8f0;
+$green: #769463;
+
+$brown: #bc9a71;
+$yellow: #ecbe65;
+
+// LOGO blobs
+$green-blob: #7e9265;
+$yellow-blob: #debc6a;
+$brown-blob: #b19872;
+
+$header: "Libre Caslon Text", "serif";
+$para: "Lato", "serif";
+$letter-spacing: 0.5px;
+
+$bolder: 700;
+$normal: 300;
+
+// screen sizes
+$tablet: 1024px;
+$tablet-vertical: 768px;
+$mobile: 500px;
+
+$transition: 0.3s ease all;
+
+html {
+	background-color: $white;
+}
+body {
+	font-size: 14px;
+	font-family: $para;
+	letter-spacing: $letter-spacing;
+	font-weight: $normal;
+	line-height: 1.33;
+}
+h1,
+h2 {
+	font-family: $header;
+	letter-spacing: 0.5px;
+}
+h1 {
+	font-size: 1rem;
+}
+h2 {
+	font-size: 1.85rem;
+	line-height: 1.33;
+}
+.section-header {
+	font-style: italic;
+	margin-bottom: 20px;
+}
+p {
+	font-size: 1rem;
+	letter-spacing: $letter-spacing;
+}
+.para-alt {
+	font-family: $para;
+	font-weight: $bolder;
+	font-size: 1rem;
+}
+.is-horizontal-center {
+	justify-content: center;
+	display: flex;
+}
+.box-shadow {
+	box-shadow: 3px 5px 14px rgba(0, 0, 0, 0.2);
+	transition: 0.5s ease all;
+}
+
+// BUTTON & LINK STYLES
+
+.body-btn {
+	border: 1px solid black;
+	background: $white;
+	padding: 8px 40px;
+	font-family: $para;
+	transition: $transition;
+	display: inline-block;
+	margin: 2rem 0;
+	font-size: 1rem;
+	letter-spacing: $letter-spacing;
+	&:hover {
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.33), 0 1px 2px rgba(0, 0, 0, 0.33);
+	}
+}
+
+.home-btn {
+	font-family: $para;
+	display: inline-block;
+	font-weight: $bolder;
+	&:after {
+		content: "";
+		display: block;
+		width: 0;
+		height: 1px;
+		background: black;
+		transition: width 0.4s;
+	}
+	&:hover:after {
+		width: 100%;
+	}
+}
+
+.nav-link {
+	transition: $transition;
+	&:after {
+		content: "";
+		display: block;
+		width: 0;
+		height: 1px;
+		background: black;
+		transition: width 0.4s;
+	}
+	&:hover:after {
+		width: 100%;
+	}
+}
+
+// BULMA OVERRIDES
+.section {
+	padding: 3rem;
+}
+a {
+	color: black;
+	&:hover {
+		color: black;
+	}
+}
+
+hr.section-divider {
+	margin: 3rem auto;
+	height: 1px;
+	background: black;
+	width: calc(100% - 6rem);
+	&.copyright-line {
+		width: 100%;
+		margin: 80px auto 1rem;
+	}
+}
+
+//keep aspect ratio for images
+@mixin aspect-ratio($width, $height) {
+	position: relative;
+	&:before {
+		display: block;
+		content: " ";
+		width: 100%;
+		padding-top: ($height / $width) * 100%;
+	}
+	​ > .content,
+	> img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+}

@@ -1,0 +1,24 @@
+{
+  "name": "dslchurch",
+  "version": "0.1.1",
+  "authors": [
+    "dslchurch"
+  ],
+  "description": "Main package manager for front end tools",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap-sass-official": "~3.2.0",
+    "bootstrap-hover-dropdown": "~2.0.11"
+  }
+}

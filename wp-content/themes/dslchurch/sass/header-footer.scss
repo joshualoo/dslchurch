@@ -1,0 +1,226 @@
+/*********
+NAV STYLES
+*********/
+
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px 3rem 5px 0;
+	background-color: $white;
+	border-bottom: 1px solid black;
+	width: calc(100% - 6rem);
+	margin: auto;
+	div.logo {
+		a {
+			font-family: $header;
+			letter-spacing: 1px;
+			font-size: 1.1rem;
+		}
+	}
+	div.menu {
+		margin-right: 7%;
+		.main-nav-items > ul > li {
+			display: inline-block;
+			border-left: 1px solid black;
+			border-collapse: collapse;
+			padding: 0 2rem;
+			&:last-child {
+				border-right: 1px solid black;
+			}
+		}
+	}
+	div.menu-toggle {
+		position: absolute;
+		right: 2px;
+		transform: scale(2.3);
+		transform-origin: center center;
+		transition: $transition;
+		-webkit-font-smoothing: antialiased;
+	}
+}
+#toggled-menu {
+	// display: none;
+	top: 0;
+	padding: 5rem 3rem;
+	background: $white;
+	padding: 6rem 0 9rem;
+	background: #fcf8f0;
+	border-bottom: 1px solid black;
+	width: calc(100% - 6rem);
+	margin: 0 auto;
+	position: fixed;
+	margin-left: 3rem;
+	z-index: 33;
+	.navbar {
+		width: 100%;
+		padding: 20px 0 5px 0;
+		div.logo {
+			font-family: "Libre Caslon Text", "serif";
+			letter-spacing: 1px;
+			font-size: 1.1rem;
+		}
+		.menu-toggle-close {
+			transform: scale(2.3) rotate(-45deg);
+		}
+	}
+	.toggled-logo-strip {
+		display: flex;
+		justify-content: space-between;
+		position: absolute;
+		top: 2rem;
+		width: 100%;
+		div.logo {
+			a {
+				font-family: $header;
+				letter-spacing: 1px;
+				font-size: 1.1rem;
+			}
+		}
+	}
+
+	&.nav--active {
+		animation: slide-in-top 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	}
+	&.nav--inactive {
+		animation: slide-out-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	}
+	ul#menu-toggled-nav {
+		margin: 0;
+		li.menu-item-has-children {
+			padding-bottom: 15px;
+		}
+		li {
+			flex-basis: 0;
+			flex-grow: 1;
+			flex-shrink: 1;
+			font-size: 1rem;
+			font-weight: $bolder;
+			.dropdown-item {
+				font-weight: $normal;
+				padding: 7.5px 0;
+				width: fit-content;
+			}
+		}
+	}
+	.dropdown-menu {
+		display: block;
+		padding: 0;
+		a.dropdown-item,
+		button.dropdown-item {
+			padding: 0;
+			&:hover {
+				background: none;
+			}
+		}
+	}
+}
+
+/**
+ * ----------------------------------------
+ * animation slide-in-top
+ * ----------------------------------------
+ */
+@-webkit-keyframes slide-in-top {
+	0% {
+		-webkit-transform: translateY(-1000px);
+		transform: translateY(-1000px);
+		opacity: 0;
+	}
+	100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+@keyframes slide-in-top {
+	0% {
+		-webkit-transform: translateY(-1000px);
+		transform: translateY(-1000px);
+		opacity: 0;
+	}
+	50% {
+		opacity: 0.2;
+	}
+	100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+/**
+ * ----------------------------------------
+ * animation slide-out-top
+ * ----------------------------------------
+ */
+@-webkit-keyframes slide-out-top {
+	0% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+		opacity: 1;
+	}
+	100% {
+		-webkit-transform: translateY(-1000px);
+		transform: translateY(-1000px);
+		opacity: 0;
+	}
+}
+@keyframes slide-out-top {
+	0% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+		opacity: 1;
+	}
+	50% {
+		transform: translateY(-1000);
+
+		opacity: 0;
+	}
+	100% {
+		-webkit-transform: translateY(-1000px);
+		transform: translateY(-1000px);
+		opacity: 0;
+	}
+}
+
+@media screen and (max-width: $tablet-vertical) {
+	.navbar {
+		div.menu {
+			display: none;
+		}
+	}
+	#toggled-menu {
+		ul#menu-toggled-nav {
+			li {
+			}
+		}
+	}
+}
+
+/*************
+END NAV STYLES
+*************/
+
+/************
+FOOTER STYLES
+************/
+
+footer {
+	.footer-columns {
+		justify-content: space-between;
+		align-items: flex-end;
+		.social-column {
+			margin-bottom: 0.5rem;
+			a.social-links {
+				text-decoration: underline;
+				font-size: 1rem;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $tablet-vertical) {
+	.social-tiles .tile {
+		padding: 0.5rem 0;
+	}
+}
