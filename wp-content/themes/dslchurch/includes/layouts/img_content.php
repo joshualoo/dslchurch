@@ -3,13 +3,19 @@
 $copy_header = get_sub_field('copy_header');
 $copy_subheader = get_sub_field('copy_subheader');
 $copy_content = get_sub_field('copy_content');
-$img = get_sub_field('img'); ?>
+$img = get_sub_field('img'); 
 
-<hr class="section-divider">
+$layout = get_sub_field('layout');
+$padding = get_sub_field('padding');
+$vertically_align = get_sub_field('vertically_align'); ?>
 
-<section class="img-content-section section">
+<?php if ((get_sub_field('hide_section_divider') == 'off')):?>
+    <hr class="section-divider">
+<?php endif; ?>
 
-    <div class="columns ">
+<section class="img-content-section section <?php if ($padding == 'off'):?> padding-off <?php endif;?>" >
+
+    <div class="columns <?php if ($vertically_align == 'yes'):?> is-vcentered <?php endif;?>  <?php if ($layout == 'img-left'): ?> reverse <?php endif;?>">
 
         <div class="column img-col is-horizontal-center">
             <img src="<?php echo $img['url'];?>" alt="<?php echo $img['alt'];?>">

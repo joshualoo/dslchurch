@@ -21,7 +21,9 @@ add_action( 'admin_init', 'remove_editor_for_pages' );
 add_action( 'admin_init', 'my_remove_menu_pages' );
 function my_remove_menu_pages() {
 	remove_menu_page('edit.php'); // Posts
-	remove_menu_page('edit-comments.php'); // Comments
+    remove_menu_page('edit-comments.php'); // Comments
+    remove_menu_page('edit-comments.php'); // Comments
+    remove_menu_page('admin.php?page=advanced_db_cleaner.php');
 }
 
 // 
@@ -55,3 +57,19 @@ function my_acf_op_init() {
         ));
     }
 }
+
+
+//change contact form name to prayers
+function rename_contact_form_menu() {
+    global $menu;
+    
+    foreach($menu as $key => $item) {
+      if ( $item[0] === 'Contact Forms' ) {
+          $menu[$key][0] = __('Prayer Requests','textdomain');     //change name
+          $menu[$key][3] = __('Adressbuch','textdomain');   //does not work but should (needs another hook?)  
+          //$menu[$key][6] = __('dashicons-id','textdomain'); change icon
+      }
+    }
+   return false;
+}
+

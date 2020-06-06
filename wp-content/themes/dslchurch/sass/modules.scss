@@ -19,6 +19,19 @@ PRAYER WALL
 	.request-testimonies-columns {
 		margin-top: 80px;
 	}
+	.prayer-requests,
+	.prayer-testimonies {
+		margin-top: 2rem;
+		padding-right: 20%;
+		p.date {
+			margin-top: 0.75rem;
+		}
+		.prayer-request__single,
+		.prayer-testimony__single {
+			padding: 2rem 0 0.5rem;
+			border-bottom: 1px solid black;
+		}
+	}
 }
 
 .interactive-logo__container {
@@ -235,9 +248,21 @@ span.wpcf7-not-valid-tip {
 			}
 		}
 	}
+	.prayer-wall-section {
+		.prayer-request-column {
+			margin-bottom: 2rem;
+		}
+		.prayer-requests,
+		.prayer-testimonies {
+			margin: 0;
+		}
+	}
 }
 
 @media screen and (max-width: $mobile) {
+	.wpcf7-textarea {
+		width: 100%;
+	}
 }
 
 /**************
@@ -251,11 +276,14 @@ EVENTS
 	.event-column__content-tile {
 		margin: 1rem 0;
 	}
-	.event-column__img-container {
-		// @include aspect-ratio(16, 9);
+	.event-column {
+		position: relative;
+		.event-overlay {
+			background: rgba(255, 255, 255, 0.25);
+		}
 		img {
 			object-fit: cover;
-			max-height: 450px;
+			max-height: 33vmax;
 			width: 100%;
 		}
 	}
@@ -302,6 +330,8 @@ ACCORDION
 			background-repeat: no-repeat;
 			transform: rotate(-45deg);
 			transition: all 0.3s ease-in-out;
+			transform-style: preserve-3d;
+			-webkit-font-smoothing: antialiased;
 		}
 		.accordion__content {
 			max-height: 0;
@@ -316,6 +346,8 @@ ACCORDION
 		}
 		.active .accordion__icon {
 			transform: rotate(0deg);
+			transform-style: preserve-3d;
+			-webkit-font-smoothing: antialiased;
 		}
 	}
 	.featured-img-container img {
@@ -353,24 +385,89 @@ ACCORDION
 			max-width: 100%;
 		}
 	}
+	.cta-btn-container {
+		flex-direction: column;
+		display: flex;
+		align-items: flex-start;
+		.body-btn {
+			min-width: 180px;
+		}
+	}
 }
 /*************
 End- ACCORDION
 **************/
 
-/*******
-RESOURCE
-********/
+/*********************
+RESOURCE SECTION/PAGE
+**********************/
 
 .resources-copy-description {
 	margin: 2rem 0;
 }
+.single-resource {
+	position: relative;
+	.single-resource-container {
+		.single-resource-img {
+			object-fit: cover;
+			width: 100%;
+			height: 28.5vh;
+		}
+	}
+	.more-info {
+		position: absolute;
+		left: 0;
+		top: 35%;
+		transform: scale(1.5);
+		display: none;
+	}
+	.__info-blurb {
+		margin: 10px 0;
+		position: absolute;
+		bottom: 0;
+		z-index: 1;
+		color: white;
+		padding: 15px 25px;
+		transition: $transition;
+		&.reveal {
+			position: absolute;
+			align-items: flex-start;
+			color: black;
+			// padding: 0;
+			bottom: -58px;
+			flex-direction: column-reverse;
+			display: flex;
+			.resource-title {
+				font-size: 1rem;
+			}
+			.resource-date {
+				font-size: 0.8rem;
+			}
+		}
+	}
+}
 .resource-columns {
+	justify-content: space-between;
 	.resource-title {
 		font-size: 1.3rem;
 	}
 	.resource-date {
 		font-size: 0.9rem;
+		// margin-bottom: 1rem;
+	}
+}
+
+.resources-section {
+	.body-btn {
+		// margin-top: 0;
+	}
+}
+
+@media screen and (max-width: $tablet-vertical) {
+	.resources-section {
+		.body-btn {
+			margin-top: 2rem;
+		}
 	}
 }
 
@@ -383,6 +480,9 @@ TIMELINE
 ********/
 
 .timeline-section {
+	div.swipe {
+		margin-top: -3.5rem;
+	}
 	.timeline-subheader {
 		margin-bottom: 1rem;
 	}
@@ -393,8 +493,42 @@ TIMELINE
 		margin: 1rem 0;
 	}
 	.timeline-content-columns {
+		position: relative;
 		margin: 80px 0;
-		padding: 5%;
+		padding: 2% 5%;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		//firefox hide scrollbar
+		scrollbar-width: none;
+		// edge IE hide scrollbar
+		-ms-overflow-style: none;
+		padding-right: 10%;
+		cursor: grab;
+		&::-webkit-scrollbar {
+			//chrome hide scrollbar
+			display: none;
+		}
+	}
+	.timeline-single-item {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		padding: 0 5%;
+		.timeframe-year {
+			padding-bottom: 3rem;
+		}
+		.timeline-img {
+			margin: 0 4rem;
+			img {
+				min-width: 600px;
+				max-width: 750px;
+				height: 450px;
+				object-fit: cover;
+			}
+		}
+		.timeline-copy {
+			white-space: nowrap;
+		}
 	}
 	.timeline-column {
 		position: relative;
@@ -402,6 +536,7 @@ TIMELINE
 			justify-content: center;
 			span.timeframe {
 				font-weight: $bolder;
+				transition: $transition;
 				&:before {
 					content: "";
 					position: absolute;
@@ -411,8 +546,13 @@ TIMELINE
 					width: 10px;
 					height: 10px;
 					margin-left: 11px;
+					transition: $transition;
 					background-color: white;
 				}
+			}
+			&:hover span.timeframe:before {
+				background-color: $yellow;
+				border-color: transparent;
 			}
 		}
 	}
@@ -431,11 +571,18 @@ $restrict-width: 80%;
 .img-content-section {
 	width: $restrict-width;
 	margin: 100px auto;
+	.columns.reverse {
+		flex-direction: row-reverse;
+	}
+	&.padding-off {
+		margin: 0;
+		width: 100%;
+	}
 	.img-col > img {
 		object-fit: cover;
 	}
 	.content-col {
-		width: 80%;
+		width: 100%;
 	}
 }
 
@@ -467,30 +614,69 @@ STATEMENT OF BELIEFS
 *******************/
 
 .statement-beliefs-section {
-	margin-top: 3rem;
+	margin-top: 5rem;
 	.para-alt {
 		margin-top: 40px;
 	}
 	.copy-column {
-		padding-right: 5%;
+		padding-right: 10%;
 	}
 	.autoscroll-container {
-		overflow-y: scroll;
-		//firefox hide scrollbar
-		scrollbar-width: none;
-		// edge IE hide scrollbar
-		-ms-overflow-style: none;
-		padding-right: 10%;
-		max-height: 550px;
-		&::-webkit-scrollbar {
-			//chrome hide scrollbar
-			display: none;
+		#back {
+			cursor: pointer;
+		}
+		.controls {
+			display: flex;
+			align-items: center;
+			// transform: rotate(90deg);
+		}
+		.scroll-btn {
+			font-size: 28px;
+			position: relative;
+			width: 50px;
+			height: 50px;
+			cursor: pointer;
+			display: flex;
+		}
+		#play,
+		#pause {
+			position: absolute;
+			top: 50%;
+			line-height: 0;
+			opacity: 0;
+		}
+		#play,
+		#pause,
+		#back {
+			font-size: 0.9rem;
+		}
+		.active {
+			opacity: 1 !important;
 		}
 		.autoscroll-statement {
+			.top-statement {
+				margin-top: 5rem;
+			}
+			&:hover {
+				cursor: default;
+			}
 			width: 100%;
 			height: 100%;
+			overflow-y: scroll;
+			height: 500px;
+			max-height: 550px;
+			//firefox hide scrollbar
+			scrollbar-width: none;
+			// edge IE hide scrollbar
+			-ms-overflow-style: none;
+			padding-right: 10%;
+
+			&::-webkit-scrollbar {
+				//chrome hide scrollbar
+				display: none;
+			}
 			h3.statement {
-				font-size: 4.33rem;
+				font-size: 3.33rem;
 				font-family: $header;
 				color: $green;
 				margin-bottom: 7rem;
@@ -498,7 +684,69 @@ STATEMENT OF BELIEFS
 		}
 	}
 }
+@media screen and (max-width: $tablet-vertical) {
+	.autoscroll-container {
+		margin-bottom: 3rem;
+	}
+}
 
 /***********************
 End- STATEMENT OF BELIEFS
 ************************/
+
+// Youtube iframes
+
+.video-overlay {
+	z-index: 1;
+	position: absolute;
+	width: calc(100% - 1.5rem);
+	height: calc(100% - 1.65rem);
+	background: $green;
+	opacity: 0.85;
+	top: 0.75rem;
+	left: 0.75rem;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	span.play {
+		border: 1px solid white;
+		display: inline-block;
+		border-radius: 50%;
+		transition: $transition;
+		padding: 10px;
+		img {
+			width: 40px;
+			padding: 5px;
+		}
+	}
+	&:hover span.play {
+		opacity: 0.5;
+	}
+}
+
+.iframe-container {
+	overflow: hidden;
+	padding-top: 56.25%;
+	position: relative;
+	.overlay:after {
+		z-index: 1;
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background: $green;
+		opacity: 0.85;
+		top: 0;
+		left: 0;
+		transition: $transition;
+	}
+}
+
+.iframe-container iframe {
+	border: 0;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}

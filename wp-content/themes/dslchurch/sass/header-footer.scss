@@ -18,7 +18,7 @@ NAV STYLES
 		}
 	}
 	div.menu {
-		margin-right: 7%;
+		margin-right: 0;
 		.main-nav-items > ul > li {
 			display: inline-block;
 			border-left: 1px solid black;
@@ -30,27 +30,54 @@ NAV STYLES
 		}
 	}
 	div.menu-toggle {
+		display: none;
 		position: absolute;
 		right: 2px;
 		transform: scale(2.3);
 		transform-origin: center center;
 		transition: $transition;
-		-webkit-font-smoothing: antialiased;
+		.menu-toggle__btn {
+			width: 6px;
+			height: 6px;
+			background-image: url(https://image.flaticon.com/icons/svg/748/748122.svg);
+			background-repeat: no-repeat;
+			transition: $transition;
+			transform: rotate(-45deg);
+			transform-style: preserve-3d;
+			-webkit-font-smoothing: antialiased;
+			display: block;
+			position: relative;
+			top: 4px;
+			right: 1px;
+			&.rotate {
+				transform: rotate(0);
+			}
+		}
+	}
+	&:before {
+		position: absolute;
+		content: "";
+		z-index: -1;
+		width: calc(100% + 6rem);
+		top: 0;
+		left: -3rem;
+		background: #fcf8f0;
+		height: 3rem;
 	}
 }
 #toggled-menu {
-	// display: none;
+	display: none;
 	top: 0;
 	padding: 5rem 3rem;
 	background: $white;
-	padding: 6rem 0 9rem;
+	padding: 0 0 9rem;
 	background: #fcf8f0;
 	border-bottom: 1px solid black;
 	width: calc(100% - 6rem);
 	margin: 0 auto;
 	position: fixed;
 	margin-left: 3rem;
-	z-index: 33;
+	z-index: 3;
 	.navbar {
 		width: 100%;
 		padding: 20px 0 5px 0;
@@ -79,10 +106,10 @@ NAV STYLES
 	}
 
 	&.nav--active {
-		animation: slide-in-top 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+		animation: slide-in-top 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 	}
 	&.nav--inactive {
-		animation: slide-out-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+		animation: slide-out-top 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 	}
 	ul#menu-toggled-nav {
 		margin: 0;
@@ -95,6 +122,11 @@ NAV STYLES
 			flex-shrink: 1;
 			font-size: 1rem;
 			font-weight: $bolder;
+			width: fit-content;
+			a.nav-link {
+				display: inline-block;
+				width: fit-content;
+			}
 			.dropdown-item {
 				font-weight: $normal;
 				padding: 7.5px 0;
@@ -110,6 +142,42 @@ NAV STYLES
 			padding: 0;
 			&:hover {
 				background: none;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $tablet-vertical) {
+	.navbar {
+		padding-right: 0;
+		div.menu {
+			.main-nav-items > ul > li {
+				padding: 0 1.5rem;
+				border: 0;
+				&:last-child {
+					border: 0;
+					padding-right: 0;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $mobile) {
+	.navbar {
+		div.menu {
+			display: none;
+		}
+		div.menu-toggle {
+			display: block;
+		}
+	}
+	#toggled-menu {
+		display: block;
+		padding: 4rem 0 1rem;
+		ul#menu-toggled-nav {
+			li {
+				margin: 1rem 0;
 			}
 		}
 	}
@@ -183,20 +251,6 @@ NAV STYLES
 	}
 }
 
-@media screen and (max-width: $tablet-vertical) {
-	.navbar {
-		div.menu {
-			display: none;
-		}
-	}
-	#toggled-menu {
-		ul#menu-toggled-nav {
-			li {
-			}
-		}
-	}
-}
-
 /*************
 END NAV STYLES
 *************/
@@ -224,3 +278,8 @@ footer {
 		padding: 0.5rem 0;
 	}
 }
+
+//hide recaptcha badge
+// .grecaptcha-badge {
+// 	visibility: hidden;
+// }

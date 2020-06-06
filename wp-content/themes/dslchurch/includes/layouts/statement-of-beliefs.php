@@ -5,12 +5,11 @@ $statement_copy = get_sub_field('statement_copy');?>
 <section class="statement-beliefs-section section">
 
     <div class="columns">
-
         <div class="column is-6 autoscroll-container">
 
-            <div class="autoscroll-statement" id="scroll">
+            <div class="autoscroll-statement" id="scroll" draggable="true">
 
-                <h3 class="statement">Belief Statements:</h3>
+                <h3 class="top-statement statement">Belief Statements:</h3>
 
                 <?php
                     if( have_rows('statements') ):
@@ -23,15 +22,20 @@ $statement_copy = get_sub_field('statement_copy');?>
                 ?>
             </div>
 
+            <div class="controls">
+                <div class="scroll-btn">
+                    <p id="play">autoscroll</p>
+                    <p id="pause" class="active">pause</p>
+                </div>  
+            </div>
+            <div><p id="back">reset</p></div>
+
         </div>
 
         <div class="column copy-column">
             <?php echo $statement_copy;?>
         </div>
-
     </div>
-
 
 </section>
 
-<hr class="section-divider">

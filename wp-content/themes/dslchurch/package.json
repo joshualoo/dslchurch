@@ -32,6 +32,7 @@
     "grunt-spritesmith": "^6.4.0"
   },
   "dependencies": {
-    "@creativebulma/bulma-collapsible": "^1.0.4"
+    "@creativebulma/bulma-collapsible": "^1.0.4",
+    "lity": "^2.4.1"
   }
 }

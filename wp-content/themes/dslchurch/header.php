@@ -13,7 +13,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title><?php echo get_the_title(); ?> | <?php echo bloginfo('name');?></title>
+	<title><?php if(get_the_title()): echo get_the_title() . ' |'; endif; ?> <?php echo bloginfo('name');?></title>
 
 	<?php wp_head(); ?>
 </head>
@@ -39,20 +39,20 @@
 		</div>
  
 		<div class="menu-toggle">
-			<a id="toggle" class="menu-toggle__btn">&#43;</a>
+			<a id="toggle" class="menu-toggle__btn"></a>
 		</div> 		
 		
 	</nav> 
 
 		<div class="toggled-menu nav--inactive" id="toggled-menu">
-			<nav class="navbar is-fixed-top" role="navigation" aria-label="dropdown navigation">
+			<!-- <nav class="navbar is-fixed-top" role="navigation" aria-label="dropdown navigation">
 				<div class="logo">
 					<a href="<?php echo get_home_url();?>" class="logo-type">dslchurch</a>
 				</div>
 				<div class="menu-toggle-close">
 					<a id="toggle-close" class="">&#43;</a>
 				</div> 	
-			</nav>
+			</nav> -->
 		
 			<?php wp_nav_menu( array(
 				'theme_location'  => 'toggle_nav',

@@ -53,8 +53,9 @@ function load_the_theme_scripts() {
 	
 	// wp_register_script( 'app-polyfills', '//cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim' . $js_extension );
 
-	wp_enqueue_script( 'bulma-collapsible', $js_path . 'bulma-collapsible' . $js_extension, array('jquery'), '1.0', true );
+	wp_enqueue_script( 'lity', $js_path . 'lity' . $js_extension, array('jquery'), '1.0', true );
 
+	wp_enqueue_script( 'jquery-ui', '//code.jquery.com/ui/1.12.0/jquery-ui.min.js', array('jquery'), '1.0', true );
 
 	wp_enqueue_script( 'main-script', $js_path . 'script' . $js_extension, array('jquery'), '1.0', true );
 

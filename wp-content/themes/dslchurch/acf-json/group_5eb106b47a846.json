@@ -4,8 +4,8 @@
     "fields": [
         {
             "key": "field_5eb1087bc65c1",
-            "label": "Resource Video Link",
-            "name": "resource_video_link",
+            "label": "Video (youtube only)",
+            "name": "yt_video",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -41,5 +41,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1588660365
+    "modified": 1590684198
 }

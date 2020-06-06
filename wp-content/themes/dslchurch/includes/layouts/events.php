@@ -29,33 +29,36 @@
                             <?php if ($enable_cta == 'yes'):
                                 $event_link = get_field('event_link');
                                 $event_link_label = get_field('event_link_label'); ?>
+    
+                                <?php if ($event_link_label): ?>
+                                    <a href="<?php echo $event_link;?> " class="body-btn"><?php echo $event_link_label;?></a>
+                                <?php endif; ?>
 
-                                <a href="<?php echo $event_link;?> " class="body-btn"><?php echo $event_link_label;?></a>
                             <?php endif; ?>
                         </div>
                      </div>
 
                 </div>
 
-                <div class="column is-two-thirds">
+                <div class="column is-two-thirds event-column">
 
                     <?php
-                        $is_video_img = get_field('is_video_img'); 
-                        
-                        if($is_video_img == 'video'):
-                            $video_link = get_field('video_link'); ?>
+                        $add_video = get_field('add_video'); 
+                        $video_id = get_field('video_id'); ?>
 
-                        <div class="default-iframe-size embed-responsive">
-                            <iframe class="embed-responsive-item" src="<?php echo $video_link; ?>" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                        
-                    <?php elseif($is_video_img == 'img'): 
-                            $image =  wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?>
-                            <div class="event-column__img-container">
-                                <img class="event-column__featured-img" src="<?php echo $image; ?>" alt="Featured Event">
+                        <?php if ($add_video == 'yes'): ?>
+                            <a href="<?php echo $video_id;?>" data-lity>
+                            <div class="video-overlay event-overlay">
+                                <span class="play"><img src="<?php echo get_template_directory_uri();?>/img/play-btn.png" alt="Play"></span>
                             </div>
-                    <?php endif; ?> 
-                      
+                        <?php endif;?>
+                                <?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'medium' ); ?>
+                                    <img class="single-resource-img" src="<?php echo $url;?>" alt="<?php the_title();?>">
+                                </div>
+                        <?php if ($video_id): ?>
+                            </a>
+                        <?php endif;?>
+                        
                 </div>
 
                 <?php

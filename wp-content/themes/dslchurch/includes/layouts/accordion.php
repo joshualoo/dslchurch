@@ -1,6 +1,9 @@
-<hr class="section-divider">
 
-<section class="section resources-section">
+<?php if ((get_sub_field('hide_section_divider') == 'no')):?>
+    <hr class="section-divider">
+<?php endif; ?>
+
+<section class="section accordion-section">
 <?php
     $accordion_copy_header = get_sub_field('accordion_copy_header');
     $feature_image = get_sub_field('feature_image'); ?>

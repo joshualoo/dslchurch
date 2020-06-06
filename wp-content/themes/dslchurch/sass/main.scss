@@ -1,8 +1,7 @@
-// import bulma
+// import vendors
 @import "../node_modules/bulma/bulma.sass";
-@import "../node_modules/@creativebulma/bulma-collapsible/node_modules/bulma/bulma.sass";
-
-@import "theme-vars"; // the theme vars may contain overrides to the bootstrap variables
+@import "../bower_components/lity/dist/lity.min.css";
+@import "theme-vars";
 @import "header-footer";
 @import "modules";
 

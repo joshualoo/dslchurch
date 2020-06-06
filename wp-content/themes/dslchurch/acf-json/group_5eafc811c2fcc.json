@@ -3,11 +3,11 @@
     "title": "Event",
     "fields": [
         {
-            "key": "field_5eafc816aab3f",
-            "label": "Feature Video or Image?",
-            "name": "is_video_img",
+            "key": "field_5ed013e16a22c",
+            "label": "Add Video?",
+            "name": "add_video",
             "type": "button_group",
-            "instructions": "",
+            "instructions": "Adds overlay and trigger video lightbox",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -16,27 +16,27 @@
                 "id": ""
             },
             "choices": {
-                "video": "Video",
-                "img": "Image"
+                "yes": "Yes",
+                "no": "No"
             },
             "allow_null": 0,
-            "default_value": "img",
+            "default_value": "",
             "layout": "horizontal",
             "return_format": "value"
         },
         {
             "key": "field_5eafc84faab40",
-            "label": "Video Link",
-            "name": "video_link",
+            "label": "Video (youtube only)",
+            "name": "video_id",
             "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5eafc816aab3f",
+                        "field": "field_5ed013e16a22c",
                         "operator": "==",
-                        "value": "video"
+                        "value": "yes"
                     }
                 ]
             ],
@@ -162,5 +162,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1588623733
+    "modified": 1590694986
 }

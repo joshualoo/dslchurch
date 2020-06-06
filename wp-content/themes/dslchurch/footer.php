@@ -18,7 +18,7 @@
 								$link_to = get_sub_field('link_to');?>
 
 								<div class="tile">
-									<a target="_blank" rel="noopener" href="<?php echo $link_to;?>" class="social-links"><?php echo $link_text; ?></a>
+									<a target="_blank" rel="noopener noreferrer" href="<?php echo $link_to;?>" class="social-links"><?php echo $link_text; ?></a>
 								</div>
 					<?php
 						endwhile;

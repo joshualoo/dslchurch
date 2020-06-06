@@ -128,11 +128,37 @@
     <div class="columns request-testimonies-columns">
         <div class="column prayer-request-column">
             <p class="para-alt">Prayer Requests:</p>
+
+            <div class="prayer-requests">
+                <?php
+                    if( have_rows('prayer_requests') ):
+                        while ( have_rows('prayer_requests') ) : the_row();
+                            $prayer_request = get_sub_field('prayer_request');
+                            $date = get_sub_field('date'); ?>
+                            <p class="prayer-request__single"><?php echo $prayer_request;?></p>
+                            <p class="date is-size-7">Submitted <?php echo $date;?></p>
+                <?php
+                    endwhile;
+                endif;
+                ?>
+            </div>
         </div>
 
         <div class="column prayer-testimony-column">
             <p class="para-alt">Prayer Testimonies:</p>
 
+            <div class="prayer-testimonies">
+                <?php
+                    if( have_rows('prayer_testimonies') ):
+                        while ( have_rows('prayer_testimonies') ) : the_row();
+                            $prayer_testimony = get_sub_field('prayer_testimony');?>
+                            <p class="prayer-testimony__single"><?php echo $prayer_testimony;?></p>
+                            <p class="date is-size-7">Submitted <?php echo $date;?></p>
+                <?php
+                    endwhile;
+                endif;
+                ?>
+            </div>
         </div>
     </div>
 

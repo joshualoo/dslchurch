@@ -18,8 +18,7 @@
 
                     <p><?php echo $details;?> </p>
 
-                    <a href="<?php echo $cta_button_link;?>" class="body-btn"><?php echo $cta_button_label;?></a>
-
+                    <a target="_blank" rel="noopener noreferrer " href="<?php echo $cta_button_link;?>" class="body-btn"><?php echo $cta_button_label;?></a>
                 </div>
 
         <?php

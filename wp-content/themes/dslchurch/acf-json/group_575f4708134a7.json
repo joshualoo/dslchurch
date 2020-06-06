@@ -35,7 +35,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "placement": "left",
+                            "placement": "top",
                             "endpoint": 0
                         },
                         {
@@ -55,7 +55,7 @@
                             "placeholder": "",
                             "maxlength": "",
                             "rows": 5,
-                            "new_lines": ""
+                            "new_lines": "br"
                         },
                         {
                             "key": "field_5eb0b9d6e77bc",
@@ -70,15 +70,15 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "placement": "left",
+                            "placement": "top",
                             "endpoint": 0
                         },
                         {
                             "key": "field_5eb0b97be77bb",
-                            "label": "Prayer Requests",
+                            "label": "Add Prayer Requests",
                             "name": "prayer_requests",
-                            "type": "post_object",
-                            "instructions": "Select Prayer Requests to publicize",
+                            "type": "repeater",
+                            "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -86,19 +86,56 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "post_type": "",
-                            "taxonomy": "",
-                            "allow_null": 0,
-                            "multiple": 1,
-                            "return_format": "id",
-                            "ui": 1
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "table",
+                            "button_label": "Add Request",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5ec8a4f95c96c",
+                                    "label": "Prayer Request",
+                                    "name": "prayer_request",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "70",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5ecd52cef4265",
+                                    "label": "Date",
+                                    "name": "date",
+                                    "type": "date_picker",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "display_format": "F j, Y",
+                                    "return_format": "F j, Y",
+                                    "first_day": 1
+                                }
+                            ]
                         },
                         {
                             "key": "field_5eb0b9fae77be",
-                            "label": "Prayer Testimonies",
+                            "label": "Add Prayer Testimonies",
                             "name": "prayer_testimonies",
-                            "type": "post_object",
-                            "instructions": "Select Prayer Testimonies to publicize",
+                            "type": "repeater",
+                            "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -106,12 +143,49 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "post_type": "",
-                            "taxonomy": "",
-                            "allow_null": 0,
-                            "multiple": 1,
-                            "return_format": "id",
-                            "ui": 1
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "table",
+                            "button_label": "Add Testimony",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5ec8a5365c96d",
+                                    "label": "Prayer Testimony",
+                                    "name": "prayer_testimony",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "70",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5ecd52e1f4266",
+                                    "label": "Date",
+                                    "name": "date",
+                                    "type": "date_picker",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "display_format": "F j, Y",
+                                    "return_format": "F j, Y",
+                                    "first_day": 1
+                                }
+                            ]
                         },
                         {
                             "key": "field_5eb0aa561613b",
@@ -126,7 +200,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "placement": "left",
+                            "placement": "top",
                             "endpoint": 0
                         },
                         {
@@ -440,7 +514,7 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "placement": "left",
+                                    "placement": "top",
                                     "endpoint": 0
                                 },
                                 {
@@ -452,7 +526,7 @@
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
-                                        "width": "",
+                                        "width": "50",
                                         "class": "",
                                         "id": ""
                                     },
@@ -471,7 +545,7 @@
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
-                                        "width": "",
+                                        "width": "50",
                                         "class": "",
                                         "id": ""
                                     },
@@ -494,7 +568,7 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "placement": "left",
+                                    "placement": "top",
                                     "endpoint": 0
                                 },
                                 {
@@ -547,6 +621,28 @@
                     "label": "Resources",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_5ed3e84e06fec",
+                            "label": "Hide Section Divider",
+                            "name": "hide_section_divider",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "yes": "Yes",
+                                "no": "No"
+                            },
+                            "allow_null": 0,
+                            "default_value": "no",
+                            "layout": "horizontal",
+                            "return_format": "value"
+                        },
                         {
                             "key": "field_5eafa9a41f482",
                             "label": "Resources Copy Header",
@@ -612,6 +708,28 @@
                     "label": "Accordion",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_5ed3e7ff06fea",
+                            "label": "Hide Section Divider",
+                            "name": "hide_section_divider",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "yes": "Yes",
+                                "no": "No"
+                            },
+                            "allow_null": 0,
+                            "default_value": "no",
+                            "layout": "horizontal",
+                            "return_format": "value"
+                        },
                         {
                             "key": "field_5eb784ff2d3e2",
                             "label": "Accordion Copy",
@@ -901,6 +1019,28 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_5ed3e89e92eb0",
+                            "label": "Hide Section Divider",
+                            "name": "hide_section_divider",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "yes": "Yes",
+                                "no": "No"
+                            },
+                            "allow_null": 0,
+                            "default_value": "no",
+                            "layout": "horizontal",
+                            "return_format": "value"
+                        },
+                        {
                             "key": "field_5ebc62041aca1",
                             "label": "Timeline Copy",
                             "name": "",
@@ -1083,6 +1223,110 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_5ed3ffc4c3394",
+                            "label": "Overall Styles",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
+                            "key": "field_5ed3e8c592eb1",
+                            "label": "Hide Section Divider",
+                            "name": "hide_section_divider",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "yes": "Yes",
+                                "no": "No"
+                            },
+                            "allow_null": 0,
+                            "default_value": "no",
+                            "layout": "horizontal",
+                            "return_format": "value"
+                        },
+                        {
+                            "key": "field_5ed3ffbfc3393",
+                            "label": "Layout",
+                            "name": "layout",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "img-right": "Image on Right",
+                                "img-left": "Image on Left"
+                            },
+                            "allow_null": 0,
+                            "default_value": "img-left",
+                            "layout": "horizontal",
+                            "return_format": "value"
+                        },
+                        {
+                            "key": "field_5ed40059c3395",
+                            "label": "Add Image Padding",
+                            "name": "padding",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "on": "On",
+                                "off": "Off"
+                            },
+                            "allow_null": 0,
+                            "default_value": "",
+                            "layout": "horizontal",
+                            "return_format": "value"
+                        },
+                        {
+                            "key": "field_5ed3f35cd483a",
+                            "label": "Vertically Align Content",
+                            "name": "vertically_align",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "yes": "Yes",
+                                "no": "No"
+                            },
+                            "allow_null": 0,
+                            "default_value": "no",
+                            "layout": "horizontal",
+                            "return_format": "value"
+                        },
+                        {
                             "key": "field_5ebcc57fd54c0",
                             "label": "Copy",
                             "name": "",
@@ -1224,5 +1468,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1589476526
+    "modified": 1590954005
 }
